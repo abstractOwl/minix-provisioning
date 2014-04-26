@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Aliases for pkgin
+
+alias p="pkgin"
+alias pi="pkgin in"
+alias pse="pkg se"
+alias pr="pkgin rm"
+alias pu="pkgin up; pkgin ug"
+alias pup="pkgin up"

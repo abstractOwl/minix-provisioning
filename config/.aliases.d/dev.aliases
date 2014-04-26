@@ -1,0 +1,38 @@
+#!/bin/sh
+
+## cd to $1 subdirectory of $DEV
+__cd_dev()
+{
+    cd $DEV/$1
+}
+
+## Replace /usr/src with $DEV/$1/src
+__replace()
+{
+    if (test -z $1); then
+        echo "usage: replace <\$DEV subdir>"
+    else
+        echo "Copying $DEV/$1/src into /usr/"
+        cp -r $DEV/$1/src /usr/
+    fi
+}
+
+## Replaces /usr/src/ with /usr/minix_src_clean/
+__reset()
+{
+    if test -d /usr/minix_src_clean; then
+        rm -rf /usr/src/
+        cp -r /usr/minix_src_clean/ /usr/src/
+    else
+        echo "ERROR: /usr/minix_src_clean/ does not exist"
+    fi
+
+}
+
+
+# Dev Aliases
+alias dev="__cd_dev"
+alias resetsrc="__reset"
+alias replacesrc="__replace"
+alias rr="cd /usr/src/releasetools/; (make hdboot && reboot) || cd -"
+alias rw="cd /usr/src/; (make build && reboot) || cd -"

@@ -1,0 +1,6 @@
+bash-4.2
+curl
+gcc44
+openssh
+scmgit
+vim
