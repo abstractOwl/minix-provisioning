@@ -4,22 +4,17 @@
 # Inspired by the Oh-My-Zsh git plugin
 # <https://github.com/robbyrussel/oh-my-zsh/plugins/git>
 
-## Perform git-commit with message $1
-__git_commit() {
-    git commit -m "$1"
-}
-
 alias g="git"
 alias ga="git add"
 alias gb="git branch"
 alias gc="git commit"
-alias gcm="__git_commit"
+alias gcm="git commit -m"
 alias gco="git checkout"
 alias gd="git diff"
 alias gf="git fetch"
 alias gm="git merge"
 alias gp="git push"
 alias gpull="git pull"
-alias gr="git rebase"
-alias grst="git reset"
+alias gr="git reset"
+alias grb="git rebase"
 alias gs="git status"
