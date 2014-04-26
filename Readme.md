@@ -30,7 +30,7 @@ your own package list.
 ### Aliases
 Get to everything faster with aliases.
 
-#### Dev
+#### Dev Aliases
 
 Command     | Description                   
 ------------|-------------------------------------------------------------------
@@ -41,7 +41,7 @@ rr          | Attempts to `make hdboot`, reboots if successful
 rw          | Attempts to rebuild world, reboots if successful
 
 
-#### pkgin
+#### pkgin Aliases
 
 Command     | Description                   
 ------------|-------------------------------------------------------------------
@@ -53,7 +53,7 @@ pu          | `pkgin up; pkgin ug`
 pup         | `pkgin up`
 
 
-#### git
+#### git Aliases
 
 Command     | Description                   
 ------------|-------------------------------------------------------------------
