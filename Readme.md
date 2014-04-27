@@ -9,7 +9,7 @@ be installed in order to get these scripts onto the system.
 Run the following to set up the environment:
 
 ```
-pkgin in -y scmgit-base
+pkgin -y in scmgit-base
 git clone https://github.com/abstractOwl/minix-provisioning
 cd minix-provisioning
 sh setup.sh
