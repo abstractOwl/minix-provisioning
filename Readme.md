@@ -13,6 +13,7 @@ pkgin in -y scmgit-base
 git clone https://github.com/abstractOwl/minix-provisioning
 cd minix-provisioning
 sh setup.sh
+reboot
 ```
 
 ## Workflow
