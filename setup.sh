@@ -42,10 +42,8 @@ if !(test -f ~/.aliases); then
     cp config/.aliases ~/
     cp -r config/.aliases.d/ ~/
 
-    cd ~
-    . ~/.aliases
+    # Source aliases
     echo ". ~/.aliases" >> ~/.profile
-    cd -
 
     echo
 fi
@@ -54,8 +52,10 @@ fi
 if !(test -d ~/dev/); then
     echo "Creating ~/dev/ directory..."
     mkdir ~/dev/
+
     echo "\$DEV now points to ~/dev/"
-    export DEV=~/dev/
+    echo "export DEV=$HOME/dev" >> ~/.profile
+
     echo
 fi
 
@@ -65,6 +65,10 @@ if !(test -d /usr/minix_src_clean); then
     cp -r /usr/src/ /usr/minix_src_clean
     echo
 fi
+
+cd ~
+. ~/.profile
+cd -
 
 echo "Finished. You may need to restart for all changes to take effect."
 
