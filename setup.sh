@@ -10,9 +10,6 @@
 ################################################################################
 
 
-## Includes ####################################################################
-. utility.sh
-
 ## Constants ###################################################################
 CONFIG=./config
 
@@ -21,17 +18,13 @@ CONFIG=./config
 
 ## Update Package List
 echo "Updating package list..."
-result=$(pkgin up)
-echo $result | indent 2
+pkgin up
 echo
 
 ## Install Packages
 while read package; do
     echo "Installing $package..."
-
-    result=$(pkgin in -y package)
-    echo $result | indent 2
-
+    pkgin -y in $package
     echo
 done < "$CONFIG/packages.txt"
 
