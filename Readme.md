@@ -15,6 +15,21 @@ cd minix-provisioning
 sh setup.sh
 ```
 
+## Workflow
+
+Work in a git repository mimicking the MINIX src file structure (i.e.
+`/usr/src/servers/sched` => `<repo_dir>/src/servers/sched`, where repo_dir is
+the repository base directory. Only commit modified files to the repo. On MINIX,
+cd to `$DEV/<repo_dir>` and run:
+
+```
+gp
+replacesrc <repo>
+rr
+```
+
+to rebuild with the new files and reboot.
+
 
 ## Features
 This environment contains several enhancements to make MINIX development easier.
@@ -71,4 +86,5 @@ gpull       | `git pull`
 gr          | `git reset`
 grb         | `git rebase`
 gs          | `git status`
+
 

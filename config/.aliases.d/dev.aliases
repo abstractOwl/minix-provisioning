@@ -9,6 +9,7 @@ __cd_dev()
 ## Replace /usr/src with $DEV/$1/src
 __replace()
 {
+    __reset
     if (test -z $1); then
         echo "usage: replace <\$DEV subdir>"
     else
