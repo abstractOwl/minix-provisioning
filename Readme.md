@@ -20,7 +20,7 @@ sh setup.sh
 Work in a git repository mimicking the MINIX src file structure (i.e.
 `/usr/src/servers/sched` => `<repo_dir>/src/servers/sched`, where repo_dir is
 the repository base directory. Only commit modified files to the repo. On MINIX,
-cd to `$DEV/<repo_dir>` and run:
+clone your repository in `$DEV`, cd to it, and run:
 
 ```
 gp
@@ -43,7 +43,8 @@ Installs packages from `config/packages.txt`. Fork of this repository to create
 your own package list.
 
 ### Aliases
-Get to everything faster with aliases.
+Get to everything faster with aliases. All aliases are contained in
+`config/.aliases.d/`.
 
 #### Dev Aliases
 
@@ -87,4 +88,9 @@ gr          | `git reset`
 grb         | `git rebase`
 gs          | `git status`
 
+
+## Contributing
+
+All contributions are welcome (extra alias files, other features, etc). Feel
+free to submit a pull request!
 
