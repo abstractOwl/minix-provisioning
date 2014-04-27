@@ -21,8 +21,8 @@ CONFIG=./config
 
 ## Update Package List
 echo "Updating package list..."
-result=pkgin update
-echo result | indent 2
+result=$(pkgin up)
+echo $result | indent 2
 echo
 
 ## Install Packages
@@ -42,8 +42,10 @@ if !(test -f ~/.aliases); then
     cp config/.aliases ~/
     cp -r config/.aliases.d/ ~/
 
+    cd ~
     . ~/.aliases
     echo ". .aliases" >> ~/.profile
+    cd -
 
     echo
 fi
@@ -59,7 +61,7 @@ fi
 
 ## Back Up /usr/src
 if !(test -d /usr/minix_src_clean); then
-    echo "Backing up /usr/src... to /usr/minix_src_clean/..."
+    echo "Backing up /usr/src to /usr/minix_src_clean/..."
     cp -r /usr/src/ /usr/minix_src_clean
     echo
 fi
