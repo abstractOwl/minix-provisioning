@@ -44,7 +44,7 @@ if !(test -f ~/.aliases); then
 
     cd ~
     . ~/.aliases
-    echo ". .aliases" >> ~/.profile
+    echo ". ~/.aliases" >> ~/.profile
     cd -
 
     echo
