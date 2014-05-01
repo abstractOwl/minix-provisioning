@@ -6,6 +6,22 @@ __cd_dev()
     cd $DEV/$1
 }
 
+## Generate patch from diff between /usr/minix_src_clean and /usr/src/
+__mkpatch()
+{
+    if (test -z $1); then
+        patch_path="./patch"
+    else
+        patch_path=$1
+    fi
+
+    cd /usr/
+    patch_data=$(diff -ruNp /usr/minix_src_clean /usr/src)
+    cd -
+
+    echo $patch_data > $patch_path
+}
+
 ## Replace /usr/src with $DEV/$1/src
 __replace()
 {
@@ -33,6 +49,7 @@ __reset()
 
 # Dev Aliases
 alias dev="__cd_dev"
+alias mkpatch="__mkpatch"
 alias resetsrc="__reset"
 alias replacesrc="__replace"
 alias rr="cd /usr/src/releasetools/; (make hdboot && reboot) || cd -"
