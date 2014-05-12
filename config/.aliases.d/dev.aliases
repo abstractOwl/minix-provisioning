@@ -46,11 +46,33 @@ __reset()
 
 }
 
+__rr()
+{
+    cd /usr/src/releasetools
+    if (make hdboot > /var/log/make.log 2>&1 | tee /var/log/make.log); then
+        reboot
+    else
+        cd -
+        echo "Build failed. See /var/log/make.log for details."
+    fi
+}
+
+__rw()
+{
+    cd /usr/src/
+    if (make build > /var/log/make.log 2>&1 | tee /var/log/make.log); then
+        reboot
+    else
+        cd -
+        echo "Build failed. See /var/log/make.log for details."
+    fi
+}
+
 
 # Dev Aliases
 alias dev="__cd_dev"
 alias mkpatch="__mkpatch"
 alias resetsrc="__reset"
 alias replacesrc="__replace"
-alias rr="cd /usr/src/releasetools/; (make hdboot && reboot) || cd -"
-alias rw="cd /usr/src/; (make build && reboot) || cd -"
+alias rr="__rr"
+alias rw="__rw"
