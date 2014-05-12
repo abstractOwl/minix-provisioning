@@ -49,7 +49,7 @@ __reset()
 __rr()
 {
     cd /usr/src/releasetools
-    if (make hdboot > /var/log/make.log 2>&1 | tee /var/log/make.log); then
+    if (make hdboot > /var/log/make.log 2>&1); then
         reboot
     else
         cd -
@@ -60,7 +60,7 @@ __rr()
 __rw()
 {
     cd /usr/src/
-    if (make build > /var/log/make.log 2>&1 | tee /var/log/make.log); then
+    if (make build > /var/log/make.log 2>&1); then
         reboot
     else
         cd -
