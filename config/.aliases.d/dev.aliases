@@ -50,7 +50,7 @@ __rr()
 {
     echo "Rebuilding kernel..."
     cd /usr/src/releasetools
-    (make hdboot > /var/log/make.log 2>&1 && reboot) | tee /var/log/make.log
+    make hdboot 2>&1 | tee /var/log/make.log && reboot
 
     cd -
     echo "Build failed. See /var/log/make.log for details."
@@ -60,7 +60,7 @@ __rw()
 {
     echo "Rebuilding world..."
     cd /usr/src/
-    (make build > /var/log/make.log 2>&1 && reboot) | tee /var/log/make.log
+    make build 2>&1 | tee /var/log/make.log && reboot
 
     cd -
     echo "Build failed. See /var/log/make.log for details."
