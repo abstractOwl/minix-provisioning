@@ -48,24 +48,22 @@ __reset()
 
 __rr()
 {
+    echo "Rebuilding kernel..."
     cd /usr/src/releasetools
-    if (make hdboot > /var/log/make.log 2>&1); then
-        reboot
-    else
-        cd -
-        echo "Build failed. See /var/log/make.log for details."
-    fi
+    (make hdboot > /var/log/make.log 2>&1 && reboot) | tee /var/log/make.log
+
+    cd -
+    echo "Build failed. See /var/log/make.log for details."
 }
 
 __rw()
 {
+    echo "Rebuilding world..."
     cd /usr/src/
-    if (make build > /var/log/make.log 2>&1); then
-        reboot
-    else
-        cd -
-        echo "Build failed. See /var/log/make.log for details."
-    fi
+    (make build > /var/log/make.log 2>&1 && reboot) | tee /var/log/make.log
+
+    cd -
+    echo "Build failed. See /var/log/make.log for details."
 }
 
 
