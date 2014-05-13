@@ -29,7 +29,7 @@ while read package; do
 done < "$CONFIG/packages.txt"
 
 ## Copy .aliases File (See README for shortcut documentation)
-if !(test -f ~/.aliases); then
+{
     echo "Installing aliases..."
 
     cp config/.aliases ~/
@@ -39,7 +39,7 @@ if !(test -f ~/.aliases); then
     echo ". ~/.aliases" >> ~/.profile
 
     echo
-fi
+}
 
 ## Make a dev directory
 if !(test -d ~/dev/); then
