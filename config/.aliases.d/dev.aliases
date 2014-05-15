@@ -46,11 +46,17 @@ __reset()
 
 }
 
+__make()
+{
+    set -o pipefail
+    make $@ 2>&1 | tee /var/log/make.log
+}
+
 __rr()
 {
     echo "Rebuilding kernel..."
     cd /usr/src/releasetools
-    make hdboot 2>&1 > /var/log/make.log && reboot
+    make hdboot && reboot
 
     cd -
     echo "Build failed. See /var/log/make.log for details."
@@ -60,7 +66,7 @@ __rw()
 {
     echo "Rebuilding world..."
     cd /usr/src/
-    make build 2>&1 > /var/log/make.log && reboot
+    make build && reboot
 
     cd -
     echo "Build failed. See /var/log/make.log for details."
@@ -69,6 +75,7 @@ __rw()
 
 # Dev Aliases
 alias dev="__cd_dev"
+alias make="__make"
 alias mkpatch="__mkpatch"
 alias resetsrc="__reset"
 alias replacesrc="__replace"
